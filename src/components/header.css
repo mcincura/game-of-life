@@ -1,0 +1,35 @@
+.header-main-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+    padding-left: 5vw;
+}
+
+.header-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 2vh;
+    background-color: rgb(43, 43, 43);
+    width: 40%;
+    max-width: 550px;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+.header-title{
+    margin-bottom: 1.5vh;
+    color: #fff;
+}
+
+.header-title h1{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 2rem;
+}
+
+.header-socials{
+    display: flex;
+    gap: 1.5vw;
+}

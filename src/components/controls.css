@@ -1,0 +1,19 @@
+.main-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    background-color: #f4f4f4;
+}
+
+.rigth-column{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.left-column{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
