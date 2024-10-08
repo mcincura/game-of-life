@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './header.css'
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
-import Controls from './controls';
+import Controls from '../controls/controls';
 
 const Header = () => {
     const [ windowWidth, setWindowWidth ] = useState(window.innerWidth);
@@ -44,9 +44,6 @@ const Header = () => {
                     <a href='https://www.instagram.com/catomincura/' target='blank'><FaInstagram color='#fff' size={40}/></a>
                     <a href='https://x.com/MartinCincura' target='blank'><FaXTwitter color='#fff' size={40}/></a>
                 </div>
-            </div>
-            <div className='controls-wrapper'>
-                <Controls containerHeight={containerHeight}/>
             </div>
         </div>
 

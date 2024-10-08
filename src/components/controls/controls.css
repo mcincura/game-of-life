@@ -1,0 +1,106 @@
+.main-controls {
+    width: 95vw;
+    margin-top: 5vh;
+}
+
+.rigth-column{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    width: fill;
+    background-color: #2b2b2b;
+}
+
+.left-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    background-color: #2b2b2b;
+    padding-block: 20px;
+    padding-inline: 20px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.controls-header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 20px 20px 0 0 ;
+}
+
+.controls-header p{
+    color: #2b2b2b;
+    font-family: "Press Start 2P", system-ui;
+    margin-left: 20px;
+    margin-block: 10px;
+}
+
+.controls-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2vh;
+    width: 100%;
+}
+
+.controls-input label{
+    color: #fff;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.8rem;
+    margin-bottom: 1vh;
+}
+
+.controls-input input{
+    width: 80%;
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.5rem;
+    background-color: #2b2b2b;
+    padding-left: 8px;
+}
+
+.controls-input input::placeholder{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.5rem;
+    color: #bdbdbd;
+}
+
+.controls-hr-line{
+    height: 2px;
+    background-color: #fff;
+    width: 70%;
+    border-radius: 500px;
+    margin-bottom: 2vh;
+}
+
+.controls-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1vh;
+}
+
+.controls-buttons button{
+    height: 28px;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.7rem;
+    border-radius: 8px;
+    border: transparent;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+

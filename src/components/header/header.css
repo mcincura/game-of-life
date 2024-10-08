@@ -1,9 +1,9 @@
 .header-main-wrapper{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
+    gap: 5vw;
     width: 100vw;
-    padding-left: 5vw;
 }
 
 .header-main{
@@ -17,6 +17,7 @@
     max-width: 550px;
     border-radius: 0 0 20px 20px;
     text-align: center;
+    margin-left: 5vw;
 }
 
 .header-title{
@@ -32,4 +33,9 @@
 .header-socials{
     display: flex;
     gap: 1.5vw;
+}
+
+.controls-wrapper{
+    width: 50%;
+    margin-right: 5vw;
 }
