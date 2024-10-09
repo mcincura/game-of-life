@@ -1,14 +1,15 @@
 .main-controls {
-    width: 95vw;
+    width: 100vw;
     margin-top: 5vh;
 }
 
-.rigth-column{
+.right-column{
     display: flex;
-    flex-direction: column;
-    gap: 1.5vh;
-    width: fill;
-    background-color: #2b2b2b;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 80vh;
 }
 
 .left-column{

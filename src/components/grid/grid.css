@@ -1,0 +1,23 @@
+.grid {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #fff;
+}
+
+.grid-row {
+    display: flex;
+}
+
+.grid-cell {
+    border: 1px solid #5a5a5a;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.grid-cell.alive {
+    background-color: #fff;
+}
+
+.grid-cell.dead {
+    background-color: #2b2b2b;
+}
