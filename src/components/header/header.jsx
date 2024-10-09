@@ -2,40 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import './header.css'
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
-import Controls from '../controls/controls';
 
 const Header = () => {
-    const [ windowWidth, setWindowWidth ] = useState(window.innerWidth);
-    const [ iconSize, setIconSize] = useState(0);
-    const [containerHeight, setContainerHeight] = useState(0);
-    const containerRef = useRef(null);
-
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-        if (containerRef.current) {
-            setContainerHeight(containerRef.current.offsetHeight);
-            console.log(containerHeight);
-        }   
-    })
-
-    useEffect(() => {
-        window.addEventListener('resize', handleResize)
-        const vw = windowWidth / 100;
-        setIconSize(vw * 3)
-        
-        if (containerRef.current) {
-            setContainerHeight(containerRef.current.offsetHeight);
-            console.log(containerHeight);
-        }
-
-    }, [windowWidth]);
-
     return(
         <div className='header-main-wrapper'>
-            <div className='header-main' ref={containerRef}>
+            <div className='header-main'>
                 <div className='header-title'>
                     <h1>GAME OF LIFE</h1>
                 </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import './controls.css';
 
 const Controls = () => {
@@ -13,7 +14,8 @@ const Controls = () => {
     const [gridSize, setGridSize] = useState('');
     const [simSpeed, setSimSpeed] = useState('');
 
-    // State for tracking dragging
+    const [isCollapsed, setIsCollapsed] = useState(false);
+
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isDragging, setIsDragging] = useState(false);
     const offset = useRef({ x: 0, y: 0 });
@@ -32,7 +34,6 @@ const Controls = () => {
         }
     }, []);
 
-    // Mouse down event - start dragging
     const handleMouseDown = (e) => {
         setIsDragging(true);
         offset.current = {
@@ -41,7 +42,6 @@ const Controls = () => {
         };
     };
 
-    // Mouse move event - move the controls
     const handleMouseMove = (e) => {
         if (isDragging) {
             const newX = e.clientX - offset.current.x;
@@ -50,13 +50,11 @@ const Controls = () => {
         }
     };
 
-    // Mouse up event - stop dragging
     const handleMouseUp = () => {
         setIsDragging(false);
     };
 
     useEffect(() => {
-        // Add mouse move and mouse up listeners when dragging
         if (isDragging) {
             window.addEventListener('mousemove', handleMouseMove);
             window.addEventListener('mouseup', handleMouseUp);
@@ -74,7 +72,8 @@ const Controls = () => {
 
     return (
         <div className='main-controls'>
-            <div
+            <motion.div
+                animate={{ height: isCollapsed ? '0px' : `295px`, backgroundColor: isCollapsed ? '#fff' : '#2b2b2b'}}
                 className='left-column'
                 ref={controlsRef}
                 style={{ 
@@ -83,41 +82,58 @@ const Controls = () => {
                 }}
                 onMouseDown={handleMouseDown}
             >
-                <div className='controls-header' ref={headerRef} style={{ width: `${headerWidth}px` }}>
-                    <p>CONTROLS</p>
-                    <div className='controls-arrow'></div>
+                <div className='controls-header' ref={headerRef} style={{ width: `${headerWidth}px`, borderRadius: isCollapsed ? '20px' : '20px 20px 0 0'}}>
+                    <div className='controls-header-text'>
+                        <p>CONTROLS</p>
+                    </div>
+                    <motion.div 
+                    animate={{rotate: isCollapsed ? '270deg' : '90deg'}}
+                    className='controls-arrow' 
+                    onClick={() => setIsCollapsed(!isCollapsed)}>
+                        <img src='./arrow.png'/>
+                    </motion.div>
                 </div>
 
-                <div className='controls-input' style={{ marginTop: `${marginTop}px` }}>
-                    <label>GRID SIZE</label>
-                    <input
-                        ref={inputRef}
-                        placeholder='50 - 2000'
-                        value={gridSize}
-                        onChange={(e) => setGridSize(e.target.value)}
-                    />
-                </div>
-                <div className='controls-input'>
-                    <label>SIMULATION SPEED</label>
-                    <input
-                        placeholder='10ms - 500ms'
-                        value={simSpeed}
-                        onChange={(e) => setSimSpeed(e.target.value)}
-                    />
-                </div>
-                <div className='controls-hr-line'></div>
-                <div className='controls-buttons'>
-                    <button style={{ width: `${buttonWidth}px` }}>CLEAR GRID</button>
-                    <button
-                        onClick={() => setIsRunning(!isRunning)}
-                        style={{ color: isRunning ? '#de0b0b' : 'rgb(43, 43, 43)', width: `${buttonWidth}px` }}
+                {!isCollapsed && (
+                    <motion.div
+                        className='controls-content'
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
                     >
-                        {isRunning ? 'STOP SIMULATION' : 'START SIMULATION'}
-                    </button>
-                </div>
+                        <div className='controls-input' style={{ marginTop: `${marginTop}px` }}>
+                            <label>GRID SIZE</label>
+                            <input
+                                ref={inputRef}
+                                placeholder='50 - 2000'
+                                value={gridSize}
+                                onChange={(e) => setGridSize(e.target.value)}
+                            />
+                        </div>
+                        <div className='controls-input'>
+                            <label>SIMULATION SPEED</label>
+                            <input
+                                placeholder='10ms - 500ms'
+                                value={simSpeed}
+                                onChange={(e) => setSimSpeed(e.target.value)}
+                            />
+                        </div>
+                        <div className='controls-hr-line'></div>
+                        <div className='controls-buttons'>
+                            <button style={{ width: `${buttonWidth}px` }}>CLEAR GRID</button>
+                            <button
+                                onClick={() => setIsRunning(!isRunning)}
+                                style={{ color: isRunning ? '#de0b0b' : 'rgb(43, 43, 43)', width: `${buttonWidth}px` }}
+                            >
+                                {isRunning ? 'STOP SIMULATION' : 'START SIMULATION'}
+                            </button>
+                        </div>
+                    </motion.div>
+                )}
+            </motion.div>
+            <div className='right-column'>
+                
             </div>
-
-            <div className='right-column'></div>
         </div>
     );
 };
